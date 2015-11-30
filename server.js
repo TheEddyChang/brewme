@@ -12,7 +12,7 @@ var localStrategy = require('passport-local').Strategy;
 
 //mongoose
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/beerme'); //database name 'beerme'
+
 //require post model
 var Post = require('./models/post'); //collection name posts is always plural
 //require user model
@@ -24,7 +24,7 @@ var User = require('./models/user');
 mongoose.connect(
   process.env.MONGOLAB_URI ||
   process.env.MONGOHQ_URL ||
-  'mongodb://localhost/YOUR_LOCAL_DATABASE_NAME'
+  'mongodb://localhost/beerme'
 );
 
 //middleware for auth
