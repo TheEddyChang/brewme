@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>beerME</title>
+	</head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/">Home</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						
+						<li class="/signup"><a href="/signup">Sign Up</a></li>
+						<li class="/login"><a href="/login">Log In</a></li>
+						
+						</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav>
+					
+					<h1>brewMe</h1>
+					<div id="form">
+						<form id="search" method="get">
+							<div class="form-group">
+								<input type="text" class="form-control" id="location-city" placeholder="search location">
+							</div>
+							<div class="form-group">
+								<input type="submit" value="submit" class="btn btn-primary">
+							</div>
+						</form>
+					</div>
+					<!-- <div class="container">
+								<div id="masonry-grid">
+											<div id="list">
+													<div class="grid-tem"><img id="image" src="" width="400" height="390"/></div>
+														
+													<div class="grid-item"><img src="http://www.lukechueh.com/images/paintings/paintings-whole/Black-In-White-Big.jpg" width="400" height="223"/></div>
+													<div class="grid-item"><img class="image" src="http://webneel.com/daily/sites/default/files/images/daily/04-2013/5-elephants-by-ademeit-black-and-white-photography.jpg" width="400" height="402"/></div>
+													<div class="grid-item"><img src="http://theplanetd.com/wp-content/uploads/2010/08/BlackWhite-India-Taj-Mahal.jpg" width="400" height="620"/></div>
+													<div class="grid-item"><img src="https://media-mediatemple.netdna-ssl.com/wp-content/uploads/2009/09/b-photo.jpg" width="400" height="220"/></div>
+											</div>
+								</div>
+					</div> -->
+					
+					
+					
+					<div id="container">
+						<ul id="breweries-list">
+							<script id="breweries-template" type="text/x-handlebars-template">
+							\{{#each posts}}
+							<p> \{{name}}<br>
+								\{{contact.formattedPhone}}<br>
+								\{{location.address}}<br>
+								<a href=\{{url}}>\{{url}}</a>
+								\{{/each}}
+								</script>
+							</ul>
+						</div>
+						
+						
+						
+						
+						<div id="map">
+							<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+							
+							<script>
+							var map;
+							var infowindow;
+							function initMap() {
+							var pyrmont = {lat: -33.867, lng: 151.195};
+							map = new google.maps.Map(document.getElementById('map'), {
+							center: pyrmont,
+							zoom: 15
+							});
+							infowindow = new google.maps.InfoWindow();
+							var service = new google.maps.places.PlacesService(map);
+							service.nearbySearch({
+							location: pyrmont,
+							radius: 500,
+							types: ['store']
+							}, callback);
+							}
+							function callback(results, status) {
+							if (status === google.maps.places.PlacesServiceStatus.OK) {
+							for (var i = 0; i < results.length; i++) {
+							createMarker(results[i]);
+							}
+							}
+							}
+							function createMarker(place) {
+							var placeLoc = place.geometry.location;
+							var marker = new google.maps.Marker({
+							map: map,
+							position: place.geometry.location
+							});
+							google.maps.event.addListener(marker, 'click', function() {
+							infowindow.setContent(place.name);
+							infowindow.open(map, this);
+							});
+							}
+													
+							</script>
+						</div>
+						
+						
+						
+						<br><br><br><br><br><br><br><br><br>
+						
+						
+						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsOlaf2AxScK_j8MBNaP8jMMLj0dEQ0eI&callback=initMap">
+						</script>
+						<!-- jquery -->
+						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+						<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+						<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js"></script>
+						<script src="/path/to/masonry.pkgd.min.js"></script>
+						<script type="text/javascript" src="main.js"></script>
+					</body>
+				</html>

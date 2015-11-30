@@ -1,0 +1,37 @@
+body {
+	
+	
+}
+
+#map { 
+	position:absolute; 
+	top:188px; 
+	bottom:200px; 
+	width:40%; 
+	left: 700px;
+	z-index: 10;
+}
+#masonry-grid {
+    width: 1200px; // width of the entire container for the wall
+  }
+
+h1 {
+	text-align: center;
+	font-family: 'Lobster', cursive;
+	font-size: 60px;
+}
+.form-group {
+	margin-left: 100px;
+	margin-top: 48px;
+}
+.form-group2 {
+	padding-left: 160px;
+
+}
+#search {
+	margin-left: 100px;
+}
+.form-group {
+	width: 30%;
+}
+
