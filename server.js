@@ -20,6 +20,13 @@ var User = require('./models/user');
 //trying to get variable userInput from client side
 // var userInput = Request.Form['variable_name'];
 
+//CONNECTING MONGODB TO HEROKU
+mongoose.connect(
+  process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+  'mongodb://localhost/YOUR_LOCAL_DATABASE_NAME'
+);
+
 //middleware for auth
 app.use(cookieParser());
 app.use(session({
