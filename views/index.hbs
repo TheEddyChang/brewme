@@ -45,92 +45,45 @@
 							</div>
 						</form>
 					</div>
-					<!-- <div class="container">
-								<div id="masonry-grid">
-											<div id="list">
-													<div class="grid-tem"><img id="image" src="" width="400" height="390"/></div>
-														
-													<div class="grid-item"><img src="http://www.lukechueh.com/images/paintings/paintings-whole/Black-In-White-Big.jpg" width="400" height="223"/></div>
-													<div class="grid-item"><img class="image" src="http://webneel.com/daily/sites/default/files/images/daily/04-2013/5-elephants-by-ademeit-black-and-white-photography.jpg" width="400" height="402"/></div>
-													<div class="grid-item"><img src="http://theplanetd.com/wp-content/uploads/2010/08/BlackWhite-India-Taj-Mahal.jpg" width="400" height="620"/></div>
-													<div class="grid-item"><img src="https://media-mediatemple.netdna-ssl.com/wp-content/uploads/2009/09/b-photo.jpg" width="400" height="220"/></div>
-											</div>
-								</div>
-					</div> -->
 					
 					
 					
 					<div id="container">
-						<ul id="breweries-list">
+						<ol id="breweries-list">
 							<script id="breweries-template" type="text/x-handlebars-template">
 							\{{#each posts}}
-							<p> \{{name}}<br>
+							<p> <li>\{{name}}</li>
 								\{{contact.formattedPhone}}<br>
-								\{{location.address}}<br>
+								\{{location.formattedAddress}}<br>
 								<a href=\{{url}}>\{{url}}</a>
 								\{{/each}}
-								</script>
-							</ul>
-						</div>
-						
-						
-						
-						
-						<div id="map">
-							<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-							
-							<script>
-							var map;
-							var infowindow;
-							function initMap() {
-							var pyrmont = {lat: -33.867, lng: 151.195};
-							map = new google.maps.Map(document.getElementById('map'), {
-							center: pyrmont,
-							zoom: 15
-							});
-							infowindow = new google.maps.InfoWindow();
-							var service = new google.maps.places.PlacesService(map);
-							service.nearbySearch({
-							location: pyrmont,
-							radius: 500,
-							types: ['store']
-							}, callback);
-							}
-							function callback(results, status) {
-							if (status === google.maps.places.PlacesServiceStatus.OK) {
-							for (var i = 0; i < results.length; i++) {
-							createMarker(results[i]);
-							}
-							}
-							}
-							function createMarker(place) {
-							var placeLoc = place.geometry.location;
-							var marker = new google.maps.Marker({
-							map: map,
-							position: place.geometry.location
-							});
-							google.maps.event.addListener(marker, 'click', function() {
-							infowindow.setContent(place.name);
-							infowindow.open(map, this);
-							});
-							}
-													
 							</script>
-						</div>
-						
-						
-						
-						<br><br><br><br><br><br><br><br><br>
-						
-						
-						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsOlaf2AxScK_j8MBNaP8jMMLj0dEQ0eI&callback=initMap">
-						</script>
-						<!-- jquery -->
-						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-						<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
-						<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js"></script>
-						<script src="/path/to/masonry.pkgd.min.js"></script>
-						<script type="text/javascript" src="main.js"></script>
-					</body>
-				</html>
+						</ol>
+					</div>
+					
+					
+					
+					
+         <div id="map"></div>
+   
+					
+					
+					
+					
+					<br><br><br><br><br><br><br><br><br>
+					
+					
+					
+					
+					<!-- jquery -->
+					<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+					<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+					<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+					<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsOlaf2AxScK_j8MBNaP8jMMLj0dEQ0eI&callback=initMap">
+					</script>
+					
+					
+					<script type="text/javascript" src="main.js"></script>
+
+				</body>
+			</html>

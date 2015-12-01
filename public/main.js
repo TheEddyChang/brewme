@@ -1,10 +1,23 @@
-$(function() {
+	  
+    function initMap() {
+    	var map;
+		map = new google.maps.Map(document.getElementById("map"), {
+			center: {
+				lat: 37.78,
+				lng: -122.44
+			}, //{ lat: 37.78, lng: -122.44 }
+			zoom: 8
+		});
+		
+    }
+
+$(document).ready(function() {
 	console.log('js working');
-	//   $('#masonry-grid').masonry({
-	// 	// options
-	// 	itemSelector: '.grid-item',
-	// 	columnWidth: 400
-	// });
+	var googlemap = initMap();
+    
+
+  
+
 	//handlebars set up
 	var $breweriesList = $('#breweries-list');
 	var source = $('#breweries-template').html();
@@ -14,8 +27,7 @@ $(function() {
 		posts: allBreweries
 	});
 
-    //getting the value of location-city and storing it in a variable and sending it to server side
-	// var userInput = $('#location-city').val();
+
 
 	// var render = function() {
 	// 	$breweriesList.empty();
@@ -24,13 +36,21 @@ $(function() {
 	// };
 	$('#search').on('submit', function() {
 		event.preventDefault();
+		$breweriesList.empty();
 		console.log('hi');
-		$.get('/search', function(data) { //calls back to server
+		//gets value of user input from form
+		var userInput = $('#location-city').val();
+		//sends variable back to server side
+		var parameters = {
+			search: userInput
+		};
+		//added 'parameters' as a parameter
+		$.get('/search', parameters, function(data) { //calls back to server
 			console.log(data);
 			var userInput = $('#location-city').val();
 			// window.location.href="server.js?data=" + userInput;
 
-            allBreweries = data.breweries;
+			allBreweries = data.breweries;
 
 			var postHtml = template({
 				posts: allBreweries
@@ -39,30 +59,8 @@ $(function() {
 		});
 	});
 
-	// $('#search').on('submit', function() {
-	// 	event.preventDefault();
-	// 	var userInput = $('#location-city').val();
-	// 	$.ajax({
-	// 			url: '/search',
-	// 			type: 'POST',
-	// 			data: {
-	// 				'variable_name': userInput
-	// 			},
-	// 			success: function(html) {
-	// 				alert('ok');
-	// 			}
-	// 		});
-	// });
 
-$(function() {
-	$('#search').on('submit', function(){
-		var userInput = $('#location-city').val();
-		var parameters = { search: userInput};
-		   $.get('/search', parameters, function(data) {
-		   	$('#results').html(data);
-		   });
-	});
-});
+
 
 
 });

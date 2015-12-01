@@ -1,19 +1,26 @@
-body {
-	
-	
+
+.container {
+	padding-top: 400px;
+}
+#breweries-list {
+	font-size: 15px;
+	color: grey;
+	padding-top: 200px;
 }
 
+
 #map { 
-	position:absolute; 
+	position: absolute; 
 	top:188px; 
 	bottom:200px; 
 	width:40%; 
 	left: 700px;
-	z-index: 10;
+	
+	
 }
-#masonry-grid {
+/*#masonry-grid {
     width: 1200px; // width of the entire container for the wall
-  }
+  }*/
 
 h1 {
 	text-align: center;
