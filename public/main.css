@@ -1,6 +1,9 @@
-
+body {
+	background-image:url("old_map_2X.png");
+}
 .container {
 	padding-top: 400px;
+	background-image:url("old_map_2X.png");
 }
 #breweries-list {
 	font-size: 15px;

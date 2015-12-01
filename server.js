@@ -47,7 +47,7 @@ app.use(bodyParser.urlencoded({
 //var baseUrl = 'https://api.foursquare.com/v2/venues/search?client_id=' + process.env.FOURSQUARE_ID + '&client_secret=' + process.env.FOURSQUARE_SECRET + '&v=20130815&near=' + userInput + '&query=brewery';
 //var baseUrl = 'https://api.foursquare.com/v2/venues/search?client_id=' + process.env.FOURSQUARE_ID + '&client_secret=' + process.env.FOURSQUARE_SECRET + '&v=20130815&near=san%20francisco&query=brewery';
 var baseUrl = 'https://api.foursquare.com/v2/venues/search?client_id=' + process.env.FOURSQUARE_ID + '&client_secret=' + process.env.FOURSQUARE_SECRET + '&v=20130815&near='; // + userInput + '&query=brewery';
-//var userSearch = Request.Form["<userInput>"];
+
 //ROUTES
 //HOMEPAGE ROUTE
 app.get('/', function(req, res) {
@@ -63,14 +63,7 @@ app.get('/search', function(req, res) {
 		}); //body must be parsed first before calling
 	});
 });
-// //requesting foursquare api
-// app.get('/search', function(req, res) {
-// 	request(baseUrl, function(error, response, body) {
-// 		res.json({
-// 			breweries: JSON.parse(body).response.venues
-// 		}); //body must be parsed first before calling
-// 	});
-// });
+
 //SIGN UP ROUTE
 app.get('/signup', function(req, res) {
 	res.render('signup');

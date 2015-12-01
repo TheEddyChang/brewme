@@ -8,15 +8,6 @@ $(document).ready(function() {
 	var postHtml = template({
 		posts: allBreweries
 	});
-
-
-
-	// var render = function() {
-	// 	$breweriesList.empty();
-	// 	var postHtml = template({ posts: allBreweries });
-	// 	$breweriesList.append(postHtml);
-	// };
-
 	// function to display map on the page
 	var createMap = function() {
 		map = new google.maps.Map(document.getElementById('map'), {
@@ -61,36 +52,28 @@ $(document).ready(function() {
 
 				allBreweries.forEach(function(brewery) {
 					var lat = brewery.location.lat;
-					console.log(brewery.location.lat);
 					var lng = brewery.location.lng;
-					console.log(brewery.location.lng);
-					new google.maps.Marker({
+					var name = brewery.name;
+					var address = brewery.location.formattedAddress;
+					var number = brewery.contact.formattedPhone;
+				    var marker = new google.maps.Marker({
 						position: new google.maps.LatLng(lat, lng),
 						map: map,
 						title: brewery.name,
 
 					});
-
-
+					//when user clicks a marker
+					marker.info = new google.maps.InfoWindow({
+						content: '<b>' + name + '</b>' + '<br>' + address + '<br>' + number
+					});
+					google.maps.event.addListener(marker, 'click', function() {
+						marker.info.open(map, marker);
+					});
 				});
-				infowindow = new google.maps.InfoWindow();
-
-				function onItemClick(event, pin) {
-					// Create content  
-					var contentString = pin.data.text + "<br /><br /><hr />Coordinate: " + pin.location.lng + "," + pin.location.lat;
-
-					// Replace our Info Window's content and position 
-					infowindow.setContent(contentString);
-					infowindow.setPosition(pin.position);
-					infowindow.open(map);
-				}
-
 			});
 		};
 		createMap();
 		fetchBrewData();
-
-
 	});
 
 
