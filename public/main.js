@@ -18,7 +18,7 @@ $(document).ready(function() {
 			zoom: 2
 		});
 	};
-
+createMap();
 
 	$('#search').on('submit', function() {
 		event.preventDefault();
@@ -72,7 +72,7 @@ $(document).ready(function() {
 				});
 			});
 		};
-		createMap();
+		
 		fetchBrewData();
 	});
 

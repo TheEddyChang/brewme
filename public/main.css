@@ -1,41 +1,31 @@
 body {
-	background-image:url("old_map_2X.png");
+	background-image: url("old_map.png");
 }
-.container {
-	padding-top: 400px;
-	background-image:url("old_map_2X.png");
-}
+
 #breweries-list {
 	font-size: 15px;
 	color: grey;
-	padding-top: 200px;
+	padding-top: 300px;
+	padding-right: 70px;
 }
-
-
 #map { 
 	position: absolute; 
 	top:188px; 
 	bottom:200px; 
 	width:40%; 
 	left: 700px;
-	
-	
 }
-/*#masonry-grid {
-    width: 1200px; // width of the entire container for the wall
-  }*/
-
 h1 {
 	text-align: center;
 	font-family: 'Lobster', cursive;
-	font-size: 60px;
+	font-size: 25px;
 }
 .form-group {
 	margin-left: 100px;
-	margin-top: 48px;
+	margin-top: 88px;
 }
 .form-group2 {
-	padding-left: 160px;
+	padding-left: 100px;
 
 }
 #search {
