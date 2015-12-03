@@ -4,7 +4,10 @@ var mongoose = require('mongoose'),
 //defining User Schema
 var UserSchema = new Schema({
 	username: String,
-	password: String
+	password: String,
+	//favorties: letting userschema know each user will have an array of brewerys in it
+	brewerys:[{type:Schema.Types.ObjectId, ref: 'brewery'}]
+
 });
 
 
