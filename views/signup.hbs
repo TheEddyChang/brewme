@@ -28,20 +28,29 @@
 </nav>
 	<h1>Sign Up</h1>
 		<br>
-		<form method="POST" action="/signup">
+		<div id="signup">
+		<form method="POST" action="/signup" id="signup-form">
+			
 			<div class="form-group">
-				<input type="text" name="username" class="form-control" placeholder="Username" autofocus require>
+				<input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
 			</div>
 			<div class="form-group">
-				<input tpye="password" name="password" class="form-control" placeholder="Password" require>
+				<input tpye="password" name="password" class="form-control" placeholder="Password" required minlength="6">
 			</div>
 			<div class="form-group">
 				<input type="submit" class="btn btn-block btn-primary" value="Sign Up">
 			</div>
+			
+			
 		</form>
+		 </div>
+		 {{errorMessage}}
+
+
+
 		 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
-		 <script type="text/javascript" src="script/validations.js"></script>
+		 <script type="text/javascript" src="script.js"></script>
 	</body>
 </html>

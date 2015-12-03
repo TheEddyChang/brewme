@@ -7,6 +7,7 @@ require('dotenv').load();
 //requiring dependences for auth
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var flash = require('express-flash');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 //mongoose
@@ -32,6 +33,8 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+//send flash messages- must be affter session
+app.use(flash());
 //passport config - allows users to sign up/login/logout
 passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
@@ -60,7 +63,7 @@ app.get('/api/beerme/', function(req, res) {
 });
 //HOMEPAGE ROUTE
 app.get('/', function(req, res) {
-	res.render('index');
+	res.render('index', {user: req.user});
 });
 //requesting foursquare api TRYING TO GET CLIENT SIDE VARIABLE USERINPUT PRACTICE ONLY
 app.get('/search', function(req, res) {
@@ -75,7 +78,13 @@ app.get('/search', function(req, res) {
 
 //SIGN UP ROUTE
 app.get('/signup', function(req, res) {
-	res.render('signup');
+	//if user is logged in, don't let them see signup view
+	if(req.user) {
+		res.redirect('/profile');
+	} else {
+		res.render('signup', { user: req.user, errorMessage: req.flash('signupError') });
+	}
+	
 });
 //signs up new user, then logs them in
 //hashes and salts password, saves new user to db
@@ -84,15 +93,22 @@ app.post('/signup', function(req, res) {
 			username: req.body.username
 		}), req.body.password,
 		function(err, newUser) {
+			if (err) {
+				//res.send(err);
+				req.flash('signupError', err.message);
+				res.redirect('/signup');
+			} else {
 			passport.authenticate('local')(req, res, function() {
 				res.redirect('/profile');
+
 			});
 		}
+	}
 	);
 });
 //log in route
 app.get('/login', function(req, res) {
-	res.render('login');
+	res.render('login', {user: req.user});
 });
 //route to handle logging in existing users
 app.post('/login', passport.authenticate('local'), function(req, res) {

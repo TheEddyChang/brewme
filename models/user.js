@@ -10,10 +10,18 @@ var UserSchema = new Schema({
 
 });
 
+var validatePassword = function(password, callback) {
+	if (password.length < 6) {
+		return callback ({ code: 422, message: "Password must be at least 6 characters"});
+	}
+	return callback(null);
+};
+
 
 //adding passPortLocalMongoose - takes care of hashtag/salting plain-tet password
 UserSchema.plugin(passportLocalMongoose, {
-	populateFields: 'brewerys'//puts info on profile page
+	populateFields: 'brewerys',//puts info on profile page
+	passwordValidator: validatePassword
 }
 );
 

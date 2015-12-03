@@ -86,7 +86,7 @@ $(document).ready(function() {
 	});
 
 
-
+//change color of button after it gets clicked
 	$("#breweries-list").on("submit", "#add", function(event) {
 		event.preventDefault();
 		var breweryId = $(this).attr("data-id");
@@ -115,6 +115,9 @@ $(document).ready(function() {
 		});
 
 	});
+
+	//git add, commit, push
+	//git checkout master--git merge comments--git push master--git push heroku master
 
 
 

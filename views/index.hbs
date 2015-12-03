@@ -26,10 +26,14 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
+					{{#if user}} 
+					<li class="/profile"><a href="/profile">My Profile</a></li>
+					{{else}}
 						
 						<li class="/signup"><a href="/signup">Sign Up</a></li>
 						<li class="/login"><a href="/login">Log In</a></li>
-						<li class="/profile"><a href="/profile">My Profile</a></li>
+						{{/if}}
+						
 						</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
 					</nav>
@@ -49,7 +53,8 @@
 						<ol id="breweries-list">
 							<script id="breweries-template" type="text/x-handlebars-template">
 							\{{#each breweries}}
-							<li id="brewery-\{{id}}"><p>\{{name}}</p>
+							<li id="brewery-\{{id}}"><p>\{{name}}</p>//use if statement to 
+							//have favorite icon show up all the time-if req.user includes mongo
 								<p>\{{contact.formattedPhone}}</p>
 								<p>\{{location.formattedAddress}}</p>
 								<p><a href=\{{url}}>\{{url}}</a></p>
