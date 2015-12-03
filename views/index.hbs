@@ -21,7 +21,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/">Home</a>
+					<a class="navbar-brand" href="/">brewMe</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -29,7 +29,7 @@
 						
 						<li class="/signup"><a href="/signup">Sign Up</a></li>
 						<li class="/login"><a href="/login">Log In</a></li>
-						
+						<li class="/profile"><a href="/profile">My Profile</a></li>
 						</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
 					</nav>
@@ -45,47 +45,54 @@
 							</div>
 						</form>
 					</div>
-					
-					
-					
 					<div id="container">
 						<ol id="breweries-list">
 							<script id="breweries-template" type="text/x-handlebars-template">
-							\{{#each posts}}
-							<p> <li>\{{name}}</li>
-								\{{contact.formattedPhone}}<br>
-								\{{location.formattedAddress}}<br>
-								<a href=\{{url}}>\{{url}}</a>
+							\{{#each breweries}}
+							<li id="brewery-\{{id}}"><p>\{{name}}</p>
+								<p>\{{contact.formattedPhone}}</p>
+								<p>\{{location.formattedAddress}}</p>
+								<p><a href=\{{url}}>\{{url}}</a></p>
+								<div id="form_add">
+								<form id="add" method="post" data-id="\{{id}}">
+									<input type="submit" value="add" class="brewery btn btn-primary">
+								</form>
+							</div>
 								<br>
 								<hr>
-								\{{/each}}
-							</script>
-						</ol>
-					</div>
-					
-					
-					
-					
-         <div id="map"></div>
-   
-					
-					
-					
-					
-					<br><br><br><br><br><br><br><br><br>
-					
-					
-					
-					
-					<!-- jquery -->
-					<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-					<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-					<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
-					<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsOlaf2AxScK_j8MBNaP8jMMLj0dEQ0eI&callback=initMap">
-					</script>
-					
-					
-					<script type="text/javascript" src="main.js"></script>
-
-				</body>
-			</html>
+							</li>
+							\{{/each}}
+						</script>
+					</ol>
+				</div>
+				
+				
+				
+				
+				<div id="map"></div>
+				<!-- <div id="form_add">
+						<form id="add">
+								<input type="submit" value="add" class="btn btn-primary">
+						</form>
+				</div> -->
+				
+				
+				
+				
+				
+				<br><br><br><br><br><br><br><br><br>
+				
+				
+				
+				
+				<!-- jquery -->
+				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+				<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+				<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsOlaf2AxScK_j8MBNaP8jMMLj0dEQ0eI&callback=initMap">
+				</script>
+				
+				
+				<script type="text/javascript" src="main.js"></script>
+			</body>
+		</html>

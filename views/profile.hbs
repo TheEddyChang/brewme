@@ -1,100 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Profile Page</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="main.css">
-</head>
-<body>
-<nav class="navbar">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Home</a>
-    </div>
+  <head>
+    <title>Profile Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">brewMe</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            
+            <li class="/login"><a href="/logout">Log Out</a></li>
+            
+            </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+          <h1>My Favorite Breweries</h1>
+          <div id="user"><p>{{user.username}}</p>
+        </div>
+        
+        
+        <div id="fav">
+        <ul>
+         {{#each user.brewerys}}
+         <li> {{name}}<br>
+         {{contact}}<br>
+          {{location}}<br>
+          {{url}}
+          </li>
+          <br>
+          <br>
+          {{/each}}
+          
+          <ul>
+        </div>
+        <div class="panel panel-primary">...</div>
+<div class="panel panel-success">...</div>
+<div class="panel panel-info">...</div>
+<div class="panel panel-warning">...</div>
+<div class="panel panel-danger">...</div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-       
-        <li class="/login"><a href="/logout">Log Out</a></li>
-       
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<h1>brewMe</h1>
-<p>Hi {{user.username}}!</p>
-
-
-
-<div id="form">
-            <form id="search" method="get">
-              <div class="form-group">
-                <input type="text" class="form-control" id="location-city" placeholder="search location">
-              </div>
-              <div class="form-group">
-                <input type="submit" value="submit" class="btn btn-primary">
-              </div>
-            </form>
-          </div>
-          
-          
-          
-          <div id="container">
-            <ol id="breweries-list">
-              <script id="breweries-template" type="text/x-handlebars-template">
-              \{{#each posts}}
-              <p> <li>\{{name}}</li>
-                \{{contact.formattedPhone}}<br>
-                \{{location.formattedAddress}}<br>
-                <div id="lat">
-                \{{location.lat}}<br>
-                </div>
-                <div id="lng">
-                \{{location.lng}}<br>
-                </div>
-                <a href=\{{url}}>\{{url}}</a>
-                \{{/each}}
-              </script>
-            </ol>
-          </div>
-          
-          
-          
-          
-         <div id="map"></div>
-   
-          
-          
-          
-          
-          <br><br><br><br><br><br><br><br><br>
-          
-          
-          
-
-		
-
-
-
-
-
-
-
-
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsOlaf2AxScK_j8MBNaP8jMMLj0dEQ0eI&callback=initMap">
-          </script>
-		<script type="text/javascript" src="main.js"></script>
-</body>
-</html>
+        
+        
+        
+        
+        
+        <br><br><br><br><br><br><br><br><br>
+        
+        
+        
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsOlaf2AxScK_j8MBNaP8jMMLj0dEQ0eI&callback=initMap">
+        </script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+        
+      </body>
+    </html>

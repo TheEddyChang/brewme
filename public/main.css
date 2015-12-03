@@ -34,4 +34,24 @@ h1 {
 .form-group {
 	width: 30%;
 }
+#form_add {
+	float: right;
+}
+
+
+#user p {
+	font-size: 18px;
+	padding-left: 1310px;
+	margin-top: -100px;
+	color: blue;
+}
+#fav {
+	margin: 0 auto;
+	width: 70%;
+	padding-top: 150px;
+	color: grey;
+	font-size: 15px;
+	text-align: center;
+	
+}
 
