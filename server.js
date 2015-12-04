@@ -16,8 +16,8 @@ var mongoose = require('mongoose');
 var Brewery = require('./models/brewery'); //collection name posts is always plural
 //require user model
 var User = require('./models/user');
-//trying to get variable userInput from client side
-// var userInput = Request.Form['variable_name'];
+var mocha = require('mocha');
+var chai = require('chai');
 //CONNECTING MONGODB TO HEROKU
 mongoose.connect(
 	process.env.MONGOLAB_URI ||
