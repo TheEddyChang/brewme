@@ -7,6 +7,7 @@ var UserSchema = new Schema({
 	password: String,
 	//favorties: letting userschema know each user will have an array of brewerys in it
 	brewerys:[{type:Schema.Types.ObjectId, ref: 'Brewery'}]
+	//comments: [Comment.Schema]
 
 });
 

@@ -1,0 +1,88 @@
+RAILS NOTES
+
+Rails > backend framework (don't have to use rails with ruby as your backend)
+-gives routing, connection to database, way to respond to requests to send to client
+
+end goal is same as express.
+
+Express(node/backend javascript) = Rails(ruby)
+
+rails new = npm init
+
+gem(backend library for packages) = node modules
+
+gemfile = package.json
+
+rails server(or rails s) = nodemon(node server.js) //getting server started on localhost:3000
+
+ congif/routes.rb------(route definitions= server.js(hub of our backend...has logic of what routes could do...talks directly to our database-Mongoose)
+
+ /app/controllers/ - routes are seperated from logic
+
+ Rails Philosophy:
+
+ -DRYness
+ -Seperation of concerns(MVC) - "Crux of rails"
+ -Abstraction
+ -Convention over configuration - Alot easier to have code consistency
+
+ MVC
+ Model: our data...typically talk to our database
+ View: presentation layer..our html
+ 
+ Controller: handles requests and responses (exactly what our node server.js file did)
+ -interaction between models and views
+-render views
+-render json
+-redirect
+-error response
+
+
+request comes in and hits controller....then controller connects to model where model talks to database....controller ca also talk to views
+
+controller finds data that it needs then sends response
+
+
+**RAILS APP CODE-ALONG
+
+
+***FRIDAY RAILS REVIEW
+
+Workouts - CRUD(could be blogposts)
+
+GET/workouts
+
+
+codecademy ruby track
+codeschool try ruby
+exercrism.io - ruby
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

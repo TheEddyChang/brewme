@@ -4,10 +4,15 @@ $(document).ready(function() {
 	var $breweriesList = $('#breweries-list');
 	var source = $('#breweries-template').html();
 	var template = Handlebars.compile(source);
+	var $results2 = $('#results2');
 	var allBreweries;
 	var postHtml = template({
 		posts: allBreweries
 	});
+
+	// function empty() {
+	// 	$results.empty();
+	// }
 
 	//empty variable to put favorite breweries in
 	var brewerys = [];
@@ -22,10 +27,13 @@ $(document).ready(function() {
 		});
 	};
 	createMap();
-
+	
 	$('#search').on('submit', function() {
 		event.preventDefault();
 		$breweriesList.empty();
+		$results2.empty();
+		//$results2.empty();
+
 		console.log('hi');
 		//gets value of user input from form
 		var userInput = $('#location-city').val();
@@ -33,26 +41,24 @@ $(document).ready(function() {
 		var parameters = {
 			search: userInput
 		};
-		//added 'parameters' as a parameter
+        //added 'parameters' as a parameter
 		var fetchBrewData = function() {
 
 			$.get('/search', parameters, function(data) { //calls back to server
 				console.log(data);
 				var userInput = $('#location-city').val();
 				// window.location.href="server.js?data=" + userInput;
-
-				allBreweries = data.breweries;
-
-
-				var postHtml = template({
+                allBreweries = data.breweries;
+				//var brewerieslength = allBreweries.length;
+				console.log(allBreweries.length);
+                var postHtml = template({
 					breweries: allBreweries
 				});
 				//append html to the view
 				$breweriesList.append(postHtml);
-
-
-				//iterate through breweries to create map markers
+			    //iterate through breweries to create map markers
 				//var bounds = new google.maps.LatLngBounds();
+				$results2.append("Your search returned " + allBreweries.length + " results!");
 
 				allBreweries.forEach(function(brewery) {
 					var lat = brewery.location.lat;
@@ -67,21 +73,35 @@ $(document).ready(function() {
 						title: brewery.name,
 
 					});
-					//var bounds = new google.maps.LatLngBounds();
+					bounds.extend(marker.position);
+					//map locaton adjusts to where markers are
+					
 					//when user clicks a marker
 					marker.info = new google.maps.InfoWindow({
 						content: '<b>' + name + '</b>' + '<br>' + address + '<br>' + number
 					});
 					google.maps.event.addListener(marker, 'click', function() {
+						//infowindow.close();
+						
 						marker.info.open(map, marker);
+						
 					});
-					//bounds.extend(marker[i].getPosition());
+					
+					
+					
 				});
-				//map.fitBounds(bounds);
+			
+				
+				map.fitBounds(bounds);
 			});
+        
+
+
 		};
+		
 
 		fetchBrewData();
+		
 
 	});
 
@@ -89,6 +109,7 @@ $(document).ready(function() {
 //change color of button after it gets clicked
 	$("#breweries-list").on("submit", "#add", function(event) {
 		event.preventDefault();
+		$(this).html("Added to Favorites!");
 		var breweryId = $(this).attr("data-id");
 		console.log(breweryId);
         var brewHtml = $('#brewery-' + breweryId);
@@ -106,21 +127,30 @@ $(document).ready(function() {
 		        }
 
 		    }); 
-			
-
-			//brewerys.push(data);//pushing data into brewery array in brewery schema???
-			//newBrewery.push(data);
-		//when brewery comes back...only when successful add that id to the user array
+	
 
 		});
 
 	});
 
-	//git add, commit, push
-	//git checkout master--git merge comments--git push master--git push heroku master
+	
+//user to leave comments on favorite list
+	// $('body').on('submit', '.comment-form', function(event) {
+	// 	console.log("FORM SUBMITTING!");
+	// 	event.preventDefault();
+	// 	var favoriteId = $(this).attr("data-id");
+	// 	var newComment = $(this).serialize();
+	// 	//post request to create ne comment
+	// 	$.post('/api/users/favorites', newComment, function(data) {
+	// 		console.log(data);
+	// 	});
 
-
-
-
-
+	// });
+//git checkout master--git merge comments--git push master--git push heroku master
 });
+
+
+//things to work on
+//1. validations
+//2. testing
+//3. leaving comments

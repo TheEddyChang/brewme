@@ -29,43 +29,58 @@
             </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
           </nav>
-          <h1>My Favorite Breweries</h1>
-          <div id="user"><p>{{user.username}}</p>
-        </div>
-        
-        
-        <div id="fav">
-        <ul>
-         {{#each user.brewerys}}
-         <li> {{name}}<br>
-         {{contact}}<br>
-          {{location}}<br>
-          {{url}}
-          </li>
-          <br>
-          <br>
-          {{/each}}
+          <div id="header">
+            <h1>My Favorite Breweries</h1>
+            <div id="user"><p>{{user.username}}</p>
+          </div>
           
-          <ul>
-        </div>
-        
-        
-        
-        
-        
-        
-        <br><br><br><br><br><br><br><br><br>
-        
-        
-        
-        
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsOlaf2AxScK_j8MBNaP8jMMLj0dEQ0eI&callback=initMap">
-        </script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
-        <script type="text/javascript" src="main.js"></script>
+          
+          <div id="fav">
+            <ul>
+              {{#each user.brewerys}}
+              <li> {{name}}<br>
+                {{contact}}<br>
+                {{location}}<br>
+                {{url}}
+              </li>
+              
 
-      </body>
-    </html>
+              <div class="comment">
+
+              {{#each user.comments}}
+              <li>{{text}}</li>
+              {{/each}}
+                
+
+                <form class= "comment-form" data-id="{{_id}}">
+                  <input type="text" name="text" placeholder="comment">
+                  <input type="submit" class="btn" value="Add Comment">
+                </form>
+              </div>
+              <br>
+              <br>
+              
+              {{/each}}
+              
+              <ul>
+              </div>
+              
+              
+              
+              
+              
+              
+              <br><br><br><br><br><br><br><br><br>
+              
+              
+              
+              
+              <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+              <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+              <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+              <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsOlaf2AxScK_j8MBNaP8jMMLj0dEQ0eI&callback=initMap">
+              </script>
+              <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+              <script type="text/javascript" src="main.js"></script>
+            </body>
+          </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>beerME</title>
+		<title>brewMe</title>
 	</head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,6 +39,7 @@
 					</nav>
 					<div id="header">
 					<h1>brewMe</h1>
+
 					<div id="form">
 						<form id="search" method="get">
 							<div class="form-group">
@@ -50,27 +51,23 @@
 						</form>
 					</div>
 					<div id="map"></div>
-					</div>
-
-
-
-
-
-
-
-					<div id="container">
+					<div id="results2"><p></p></div>
+					
+                    <div id="results">
 						<ol id="breweries-list">
 							<script id="breweries-template" type="text/x-handlebars-template">
 							\{{#each breweries}}
-							<li id="brewery-\{{id}}"><p>\{{name}}</p>//use if statement to 
-							//have favorite icon show up all the time-if req.user includes mongo
+
+							<li id="brewery-\{{id}}"><p>\{{name}}</p>
+							
 								<p>\{{contact.formattedPhone}}</p>
 								<p>\{{location.formattedAddress}}</p>
 								<p><a href=\{{url}}>\{{url}}</a></p>
 								<div id="form_add">
 								<form id="add" method="post" data-id="\{{id}}">
-									<input type="submit" value="add" class="brewery btn btn-primary">
+									<input type="submit" value="add" id="brewery btn button">
 								</form>
+
 							</div>
 								<br>
 								<hr>
@@ -78,27 +75,14 @@
 							\{{/each}}
 						</script>
 					</ol>
-				</div>
-				
-				
-				
-				
-				
-				<!-- <div id="form_add">
+					</div>
+
+					<div id="results2"></div>
+			<!-- <div id="form_add">
 						<form id="add">
 								<input type="submit" value="add" class="btn btn-primary">
 						</form>
 				</div> -->
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				<!-- jquery -->
 				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 				<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
